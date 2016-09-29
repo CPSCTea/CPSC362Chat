@@ -1,1 +1,1 @@
-web: node index.js
+web: node CPSC362Chat/index.js
