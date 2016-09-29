@@ -7,7 +7,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection', function(socket){
+io.on('connection', function(port){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
