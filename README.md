@@ -7,3 +7,4 @@ http://cpsc362chat.herokuapp.com
 https://cpsctea.github.io/CPSC362Chat/
 
 readme is always good to test stuff on
+Readme.TXT
