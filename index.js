@@ -17,5 +17,3 @@ http.listen(port, function(){
   console.log('listening on *:Port:');
   console.log(port);
 });
-
-alert("test")
