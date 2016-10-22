@@ -35,7 +35,7 @@
       });
       $('form2').submit(function(){
         socket.emit('UID', $('#uid').val());
-        $('#muid').val('');
+        $('#uid').val('');
         return false;
       });
       socket.on('chat message', function(msg){
