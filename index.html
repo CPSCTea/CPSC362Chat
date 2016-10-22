@@ -38,6 +38,7 @@
         $('#uid').val('');
         return false;
       });
+      var string = 'UID';
       socket.on(string, function(msg){
         $('#messages').append($('<li>').text(msg));
       });
