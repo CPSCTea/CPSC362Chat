@@ -1,7 +1,8 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT
+var port = process.env.PORT;
+var UID = 'UID';
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -10,6 +11,12 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
+  });
+});
+
+io.on('connection', function(socket){
+  socket.on('UID', function(msg){
+    io.emit('UID', msg);
   });
 });
 
