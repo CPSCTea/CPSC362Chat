@@ -31,12 +31,12 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-      $("y").submit(function(){
+      $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      $("x").submit(function(){
+      $('form2').submit(function(){
         socket.emit('UID', $('#uid').val());
         $('#uid').val('');
         return false;
