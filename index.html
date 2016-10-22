@@ -9,9 +9,9 @@
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       
-      form2 { background: #000; padding: 3px; position: fixed; bottom: 4%; left:50%; width: 50%; }
-      form2 input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form2 button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 4%; left:50%; width: 50%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
@@ -20,22 +20,22 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="">
+    <form action="y">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <form2 action="x">
+    <form action="x">
       <input id="uid" autocomplete="off" /><button>Send</button>
-    </form2>
+    </form>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-      $('form').submit(function(){
+      $('y').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      $('form2').submit(function(){
+      $('x').submit(function(){
         socket.emit('UID', $('#uid').val());
         $('#uid').val('');
         return false;
