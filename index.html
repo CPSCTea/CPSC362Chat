@@ -21,28 +21,28 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form name="y" action="">
+    <form id="y" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <form2 name="x" action="">
+    <form2 id="x" action="">
       <input id="uid" autocomplete="off" /><button>Send</button>
     </form2>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-      $('form').submit(function(){
+      $("#y").submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      $('form2').submit(function(){
+      $("#x").submit(function(){
         socket.emit('UID', $('#uid').val());
         $('#uid').val('');
         return false;
       });
       socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
+        $('#messages').append($('<li>'+'#uid').text(msg));
       });
     </script>
   </body>
