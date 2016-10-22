@@ -5,6 +5,7 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
+      
       form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
@@ -20,27 +21,27 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="y">
+    <form name="y" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <form action="x">
+    <form name="x" action="">
       <input id="uid" autocomplete="off" /><button>Send</button>
     </form>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-      $('y').submit(function(){
+      $("y").submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      $('x').submit(function(){
+      $("x").submit(function(){
         socket.emit('UID', $('#uid').val());
         $('#uid').val('');
         return false;
       });
-      socket.on('UID', function(msg){
+      socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
     </script>
