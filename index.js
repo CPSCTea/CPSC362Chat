@@ -14,12 +14,6 @@ io.on('connection', function(socket){
   });
 });
 
-io.on('connection', function(socket){
-  socket.on('UID', function(msg){
-    io.emit('UID', msg);
-  });
-});
-
 http.listen(port, function(){
   console.log('listening on *:Port:');
   console.log(port);
