@@ -8,7 +8,7 @@
       form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      form2 { background: #000; padding: 3px; position: fixed; bottom: 10%; width: 100%; }
+      form2 { background: #000; padding: 3px; position: fixed; bottom: 5%;right:50%; width: 50%; }
       form2 input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form2 button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
@@ -29,8 +29,8 @@
     <script>
       var socket = io();
       $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
+        socket.emit('chat message', $('#uid'+'#m').val());
+        $('#uid'+'#m').val('');
         return false;
       });
       socket.on('chat message', function(msg){
