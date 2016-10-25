@@ -23,6 +23,7 @@
     <script>
       var socket = io();
 	  var name = "Payne";
+	  name = "Matt";
       $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
@@ -30,7 +31,7 @@
       });
       socket.on('chat message', function(msg){
 		
-        $('#messages').append($('<li>').text(name +msg));
+        $('#messages').append($('<li>').text(name+": " +msg));
       });
     </script>
   </body>
