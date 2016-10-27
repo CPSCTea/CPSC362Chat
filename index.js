@@ -8,7 +8,9 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function (socket) {
-  io.emit('User connected');
+  socket.on('User connected', function(connections){
+    io.emit('User connected', connections);
+  });
 });
 
 io.on('connection', function(socket){
@@ -18,8 +20,10 @@ io.on('connection', function(socket){
 });
 
 io.on('disconnect', function (socket) {
-    io.emit('User disconnected');
- });
+  socket.on('User disconnected', function(DC){
+    io.emit('User disconnected', DC);
+  });
+});
 
 http.listen(port, function(){
   console.log('listening on *:Port:');
