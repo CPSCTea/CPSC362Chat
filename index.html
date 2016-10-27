@@ -34,22 +34,27 @@
       $('#y').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
-        return false;
-      });
-      socket.on('chat message', function(msg){
-          if ($('#uid').val() == '')
+        if ($('#uid').val() == '')
           {
           var rngnamer = Math.floor(Math.random() * 10000 +1);
           var stringer = 'RandomUser_' + rngnamer.toString();
           $('#uid').val(stringer);
           $('#x').hide();
           }
-         else 
+        else 
          {
           $('#x').hide();
          }
-        $('#messages').append($('<li>').text($('#uid').val()+' : ' + msg));
+        socket.emit('user name', $('#uid').val())
+        return false;
       });
+       socket.on('user name', function(user){
+        $('#messages').append($('<li>').text(user));
+      });
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+
     </script>
   </body>
 </html>
