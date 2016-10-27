@@ -14,8 +14,8 @@ io.on('connection', function(socket){
 });
 
 io.on('connection', function(socket){
-  socket.on('uidx', function(UIDX){
-    io.emit('uidx', UIDX);
+  socket.on('uidx', function(uidy){
+    io.emit('uidx', uidy);
   });
 });
 
