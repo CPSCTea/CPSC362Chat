@@ -35,8 +35,7 @@
     <script>
       function namemake()
       {
-        var sesname = false;
-        if ($('#uid').val() == '' && sesname == false)
+        if ($('#uid').val() == '')
         {
           var rngnamer = Math.floor(Math.random() * 1000 +1);
           var stringer = 'RandomUser_' + rngnamer.toString();
@@ -46,7 +45,7 @@
           alert("Your name for this session is\n - " + $('#namer').val() +" - ");
           $('#x').hide();
         }
-        else if (sesname == false)
+        else 
         {
           $('#namer').val($('#uid').val());
           sesname = true;
@@ -54,6 +53,7 @@
           $('#x').hide();
         }
       }
+      
       var socket = io();
       $('#y').submit(function(){
         socket.emit('chat message', $('#m').val());
@@ -65,7 +65,12 @@
         return false;
       });
       socket.on('chat message', function(msg){
-        namemake();
+        var sesname = false;
+        if (sesname == false)
+        {
+          namemake();
+          sesname = true;
+        }
         $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
       });
     </script>
