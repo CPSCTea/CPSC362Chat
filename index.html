@@ -31,7 +31,6 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-      var dark = io();
       $('#y').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
@@ -40,7 +39,8 @@
       socket.on('chat message', function(msg){
         if ($('#uid').val() == '')
         {
-          $('#uid').val('253432');
+          var rngnamer = Math.floor(Math.Random() * 100000 +1);
+          $('#uid').val('RandomUser_' + rngnamer);
         }
         $('#messages').append($('<li>').text($('#uid').val()+' : ' + msg));
       });
