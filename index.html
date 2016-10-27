@@ -31,18 +31,19 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
+      var dark = io();
       $("#y").submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
       $("#x").submit(function(){
-        socket.emit('UID', $('#uid').val());
+        dark.emit('UID', $('#uid').val());
         $('#uid').val('');
         return false;
       });
       socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
+        $('#messages').append($('<li>' + dark+ ':').text(msg));
       });
     </script>
   </body>
