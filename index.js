@@ -13,13 +13,8 @@ io.on('connection', function (socket) {
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
+    io.emit('user name', msg);
     io.emit('chat message', msg);
-  });
-});
-
-io.on('connection', function(socket){
-  socket.on('user name', function(user){
-    io.emit('user name', user);
   });
 });
 
