@@ -12,9 +12,8 @@ io.on('connection', function (socket) {
 });
 
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('user name', msg);
-    io.emit('chat message', msg);
+  socket.on({'user name','chat message'}, function(msg){
+    io.emit({'user name','chat message'}, msg);
   });
 });
 
