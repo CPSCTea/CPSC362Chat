@@ -38,7 +38,7 @@
         return false;
       });
       $('#x').submit(function(){
-       dark.emit('uidx', $('#uid').val());
+       socket.emit('uidx', $('#uid').val());
        $('#uid').val('work?');
         return false;
       });
