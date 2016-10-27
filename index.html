@@ -42,8 +42,8 @@
        $('#uid').val('work?');
         return false;
       });
-      dark.on('uid', function(uidx){
-        $('#messages').append($('<li>').text(uidx));
+      dark.on('uid', function(uidy){
+        $('#messages').append($('<li>').text(uidy));
       });
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
