@@ -13,8 +13,8 @@ io.on('connection', function(socket){
   });
 });
 
-io.on('connection', function(socket){
-  socket.on('uidx', function(uidy){
+io.on('connection', function(dark){
+  dark.on('uidx', function(uidy){
     io.emit('uidx', uidy);
   });
 });
