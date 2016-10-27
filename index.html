@@ -38,9 +38,12 @@
         return false;
       });
       $('#x').submit(function(){
-       socket.emit('uidx', $('#uid').val());
+       dark.emit('uidx', $('#uid').val());
        $('#uid').val('work?');
         return false;
+      });
+      dark.on('uid', function(uidx){
+        $('#messages').append($('<li>').text(uidx));
       });
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
