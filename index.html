@@ -39,14 +39,14 @@
       });
       $('#x').submit(function(){
        dark.emit('uidx', $('#uid').val());
-       $('#uid').val('work?');
+       $('#uid').val('');
         return false;
       });
       dark.on('uidx', function(uidy){
         $('#messages').append($('<li>').text(uidy));
       });
       socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
+        $('#messages').append($('<li>').text($('#uid').val() + msg));
       });
     </script>
   </body>
