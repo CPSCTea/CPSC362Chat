@@ -44,7 +44,8 @@
          {
           $('#x').hide();
          }
-        socket.emit('chat message', $('#m').val($('#m').val()+$('#uid').val()));
+        var text = $('#uid').val() + ' : ' + $('#m').val();
+        socket.emit('chat message', text);
         $('#m').val('');
         return false;
       });
