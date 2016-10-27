@@ -21,7 +21,9 @@
     </style>
   </head>
   <body>
+    <div>
     <ul id="messages"></ul>
+    </div>
     <form id="y" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -32,13 +34,7 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-       socket.on('connect', function (connections) {
-         var CNing = 'User connected';
-         socket.emit('User connected',CNing);
-        $('#messages').append($('<li>').text(connections));
-        window.scrollBy(0, 50); 
-       });
-         
+
       $('#y').submit(function(){
 
         if ($('#uid').val() == '')
@@ -64,12 +60,6 @@
         window.scrollBy(0, 50); 
       });
       
-      socket.on('disconnect', function (DC) {
-        var DCing =  $('#uid').val() + ' : User disconnected';
-        socket.emit('User disconnected',DCing);
-        $('#messages').append($('<li>').text(DC));
-        window.scrollBy(0, 50); 
-      });
     </script>
   </body>
 </html>
