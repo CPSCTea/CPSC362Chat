@@ -38,7 +38,7 @@
         return false;
       });
       socket.on('chat message', function(msg){
-        if ($('#uid').val() == '')
+        if ($('#uid').val() == '' && sesname == false)
         {
           var rngnamer = Math.floor(Math.random() * 1000 +1);
           var stringer = 'RandomUser_' + rngnamer.toString();
@@ -46,7 +46,7 @@
           sesname = true;
           alert("Your name for this session is\n - " + stringer +" - ");
         }
-        else
+        else if (sesname == false)
         {
           var stringer = $('#uid').val()
           sesname = true;
