@@ -12,7 +12,7 @@
       
       form2 { background: #000; padding: 2px; position: fixed; bottom: 50%;opacity: .5; left:25%; width: 50%; }
       form2 input { border: 0; padding: 3px; width: 92.5%; margin-right: .5%; opacity: .90; background: #eee; }
-      form2 button { width: 7%; background: #eee; border: none; padding: 0px;opacity: .90; }
+      form2 label { width: 7%; background: #eee; border: none; padding: 0px;opacity: .90; }
       
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
@@ -25,7 +25,7 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     <form2 id="x" action="">
-      <input id="uid" autocomplete="off" /><button>Username</button>
+      <input id="uid" autocomplete="off" /><label>Username</label>
     </form2>
     <form3 id="namer" action="">
       <input id= "permaname"/>
@@ -33,10 +33,18 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-      function namemake()
-      {
-        if ($('#uid').val() == '')
+      var socket = io();
+      $('#y').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('chat message', function(msg){
+        var donename;
+        if (donename == false)
         {
+          if ($('#uid').val() == '')
+          {
           var rngnamer = Math.floor(Math.random() * 1000 +1);
           var stringer = 'RandomUser_' + rngnamer.toString();
           $('#uid').val(stringer);
@@ -44,31 +52,14 @@
           sesname = true;
           alert("Your name for this session is\n - " + $('#namer').val() +" - ");
           $('#x').hide();
-        }
-        else 
-        {
+          }
+         else 
+         {
           $('#namer').val($('#uid').val());
           sesname = true;
           alert("Your name for this session is\n - " + $('#namer').val() +" - ");
           $('#x').hide();
-        }
-      }
-      
-      var socket = io();
-      $('#y').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-      });
-      $('#x').submit(function(){
-        namemake();
-        return false;
-      });
-      socket.on('chat message', function(msg){
-        var donename;
-        if (donename == false)
-        {
-          namemake();
+         }
           donename=true;
         }
         $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
