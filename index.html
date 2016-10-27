@@ -38,7 +38,11 @@
         return false;
       });
       socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text($('#uid').val() + msg));
+        if ($('#uid').val() == '')
+        {
+          $('#uid').val('253432');
+        }
+        $('#messages').append($('<li>').text($('#uid').val()+' : ' + msg));
       });
     </script>
   </body>
