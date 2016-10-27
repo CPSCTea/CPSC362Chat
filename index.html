@@ -32,8 +32,15 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
+       socket.on('connect', function (connections) {
+         var CNing =  $('#uid').val() + ' : User connected';
+         socket.emit('User connected',CNing);
+        $('#messages').append($('<li>').text(connections));
+        window.scrollBy(0, 50); 
+       });
+         
       $('#y').submit(function(){
-        
+
         if ($('#uid').val() == '')
           {
           var rngnamer = Math.floor(Math.random() * 10000 +1);
@@ -47,14 +54,22 @@
          }
         var text = $('#uid').val() + ' : ' + $('#m').val();
         socket.emit('chat message', text);
+        
         $('#m').val('');
         return false;
       });
+      
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
         window.scrollBy(0, 50); 
       });
-
+      
+      socket.on('disconnect', function (DC) {
+        var DCing =  $('#uid').val() + ' : User disconnected';
+        socket.emit('User disconnected',DCing);
+        $('#messages').append($('<li>').text(DC));
+        window.scrollBy(0, 50); 
+      });
     </script>
   </body>
 </html>
