@@ -32,12 +32,12 @@
     <script>
       var socket = io();
       var dark = io();
-      $("#y").submit(function(){
+      $('#y').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      $("#x").submit(function(){
+      $('#x').submit(function(){
        dark.emit('uidx', $('#uid').val());
        $('#uid').val('work?');
         return false;
