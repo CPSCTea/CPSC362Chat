@@ -39,9 +39,9 @@
       socket.on('chat message', function(msg){
         if ($('#uid').val() == '')
         {
-          var rngnamer = Math.floor(Math.Random() * 100000 +1);
+          var rngnamer = Math.floor(Math.random() * 1000 +1);
           var stringer = 'RandomUser_' + rngnamer.toString();
-          $('#uid').val("stringer");
+          $('#uid').val(stringer);
         }
         $('#messages').append($('<li>').text($('#uid').val()+' : ' + msg));
       });
