@@ -31,24 +31,19 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-      var UID = 'Default USER';
+      var dark = io();
       $("y").submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      $("x").submit(function(){
-        UID = $('#uid').val());
-        $('#uid').val('');
+      $("#x").submit(function(){
+       dark.emit('UID', $('#uid').val());
+       $('#uid').val('work?');
         return false;
       });
-     // $("#x").submit(function(){
-     //  dark.emit('UID', $('#uid').val());
-     //  $('#uid').val('');
-     //   return false;
-     // });
-      socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(UID + msg));
+      socket.on('uid'+'chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
       });
     </script>
   </body>
