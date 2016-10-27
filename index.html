@@ -65,11 +65,9 @@
         return false;
       });
       socket.on('chat message', function(msg){
-        var sesname = false;
-        if (sesname == false)
+        if ($('#x').hide() == false)
         {
           namemake();
-          sesname = true;
         }
         $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
       });
