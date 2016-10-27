@@ -65,7 +65,7 @@
         return false;
       });
       socket.on('chat message', function(msg){
-        $(document).ready(function () {
+        $(document).one('ready', function () {
          namemake();
         });
         $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
