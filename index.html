@@ -49,14 +49,14 @@
           $('#namer').val($('#uid').val());
           sesname = true;
           alert("Your name for this session is\n - " + $('#namer').val() +" - ");
-          $('#uid').hide();
+          $('#x').hide();
         }
         else if (sesname == false)
         {
           $('#namer').val($('#uid').val());
           sesname = true;
           alert("Your name for this session is\n - " + $('#namer').val() +" - ");
-          $('#uid').hide();
+          $('#x').hide();
         }
         $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
       });
