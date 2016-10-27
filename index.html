@@ -12,7 +12,7 @@
       
       form2 { background: #000; padding: 2px; position: fixed; bottom: 50%; left:25%; width: 50%; }
       form2 input { border: 0; padding: 3px; width: 92.5%; margin-right: .5%; opacity: .90; background: #eee; }
-      form2 label { width: 100%; background: #eee; border: none; padding: 0px;opacity: .90; }
+      form2 button { width: 100%; background: #eee; border: none; padding: 0px;opacity: .90; }
       
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
@@ -33,14 +33,9 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-      var socket = io();
-      var sesname = false;
-      $('#y').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-      });
-      socket.on('chat message', function(msg){
+      function namemake()
+      {
+        var sesname = false;
         if ($('#uid').val() == '' && sesname == false)
         {
           var rngnamer = Math.floor(Math.random() * 1000 +1);
@@ -58,6 +53,19 @@
           alert("Your name for this session is\n - " + $('#namer').val() +" - ");
           $('#x').hide();
         }
+      }
+      var socket = io();
+      $('#y').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      $('#uid').submit(function(){
+        namemake();
+        return false;
+      });
+      socket.on('chat message', function(msg){
+        namemake();
         $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
       });
     </script>
