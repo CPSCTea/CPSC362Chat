@@ -48,15 +48,6 @@
          {
           $('#x').hide();
          }
-          if ($(msg).val()[0] == '#')
-          {
-            var temp = '';
-            for (var i=1; i< $(msg).val().length; i++)
-            {
-              temp+=$(msg).val()[i];
-            }
-            $('#uid').val(temp);
-          }
         $('#messages').append($('<li>').text($('#uid').val()+' : ' + msg));
       });
     </script>
