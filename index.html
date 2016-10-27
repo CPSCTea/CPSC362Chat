@@ -12,7 +12,7 @@
       
       form2 { background: #000; padding: 2px; position: fixed; bottom: 50%;opacity: .5; left:25%; width: 50%; }
       form2 input { border: 0; padding: 3px; width: 92.5%; margin-right: .5%; opacity: .90; background: #eee; }
-      form2 label { width: 7%; background: #eee; border: none; padding: 0px;opacity: .90; }
+      form2 button { width: 7%; background: #eee; border: none; padding: 0px;opacity: .90; }
       
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
@@ -65,9 +65,12 @@
         return false;
       });
       socket.on('chat message', function(msg){
-        $(document).one('ready', function () {
-         namemake();
-        });
+        var donename;
+        if (donename == false)
+        {
+          namemake();
+          donename=true;
+        }
         $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
       });
     </script>
