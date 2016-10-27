@@ -27,6 +27,9 @@
     <form2 id="x" action="">
       <input id="uid" autocomplete="off" /><label>Username</label>
     </form2>
+    <form3 id="namer" action="">
+      <input id= "permaname"/>
+    </form3>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
@@ -43,16 +46,17 @@
           var rngnamer = Math.floor(Math.random() * 1000 +1);
           var stringer = 'RandomUser_' + rngnamer.toString();
           $('#uid').val(stringer);
+          $('#namer').val($('#uid').val());
           sesname = true;
-          alert("Your name for this session is\n - " + stringer +" - ");
+          alert("Your name for this session is\n - " + $('#namer').val() +" - ");
         }
         else if (sesname == false)
         {
-          var stringer = $('#uid').val()
+          $('#namer').val($('#uid').val());
           sesname = true;
-          alert("Your name for this session is\n - " + stringer +" - ");
+          alert("Your name for this session is\n - " + $('#namer').val() +" - ");
         }
-        $('#messages').append($('<li>').text(stringer+' : ' + msg));
+        $('#messages').append($('<li>').text($('#namer').val()+' : ' + msg));
       });
     </script>
   </body>
