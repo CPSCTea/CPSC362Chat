@@ -12,7 +12,7 @@
       
       form2 { background: #000; padding: 3px; position: fixed; bottom: 7%; left:50%; width: 50%; }
       form2 input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form2 button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 6px; }
+      form2 label { width: 9%; background: rgb(130, 224, 255); border: none; padding: 6px; }
       
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
@@ -25,7 +25,7 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     <form2 id="x" action="">
-      <input id="uid" autocomplete="off" /><button>Set UID</button>
+      <input id="uid" autocomplete="off" /><label>Set UID</label>
     </form2>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -36,14 +36,6 @@
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
-      });
-      $('#x').submit(function(){
-       dark.emit('uidx', $('#uid').val());
-       $('#uid').val('');
-        return false;
-      });
-      dark.on('uidx', function(uidy){
-        $('#messages').append($('<li>').text(uidy));
       });
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text($('#uid').val() + msg));
