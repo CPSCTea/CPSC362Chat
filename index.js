@@ -13,6 +13,12 @@ io.on('connection', function(socket){
   });
 });
 
+io.on('connection', function(dark){
+  socket.on('uid', function(UIDX){
+    io.emit('uid', UIDX);
+  });
+});
+
 http.listen(port, function(){
   console.log('listening on *:Port:');
   console.log(port);
