@@ -40,7 +40,7 @@
         if ($('#uid').val() == '')
         {
           var rngnamer = Math.floor(Math.Random() * 100000 +1);
-          $('#uid').val('RandomUser_' + rngnamer);
+          $('#uid').val('RandomUser_' + rngnamer.toString());
         }
         $('#messages').append($('<li>').text($('#uid').val()+' : ' + msg));
       });
