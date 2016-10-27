@@ -42,7 +42,7 @@
        $('#uid').val('work?');
         return false;
       });
-      dark.on('uid', function(uidy){
+      dark.on('uidx', function(uidy){
         $('#messages').append($('<li>').text(uidy));
       });
       socket.on('chat message', function(msg){
