@@ -3,6 +3,13 @@
 <html>
 <head>
 <title>Socket.IO chat</title>
+
+    <style>
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+
 <script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery-latest.js"></script>
 <script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery.layout-latest.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
