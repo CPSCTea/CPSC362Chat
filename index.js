@@ -14,29 +14,6 @@ io.on('connection', function(socket){
   });
 });
 
-io.on('connection', function(log){
-  log.on('append', function(msg){
-    var mod = false;
-    for (int i = 0; i<20; i++)
-    {
-      if (list[i]=='')
-      {
-        list[i]=msg;
-        mod= true;
-      }
-    }
-    if (mod == false)
-    {
-      for (int i = 0; i<19; i++)
-      {
-        list[i] = list[i+1];
-      }
-      list[19]=msg;
-    }
-    msg = list;
-  });
-});
-
 http.listen(port, function(){
   console.log('listening on *:Port:');
   console.log(port);
