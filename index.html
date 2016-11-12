@@ -3,7 +3,20 @@
   <head>
     <title>CPSC362 chat</title>
     <style>
-                            
+              
+      
+       <div id="splashscreen">
+    <h2>Welcome !</h2>
+    Take a look at our new products, blablabla
+    <img src="http://i.telegraph.co.uk/multimedia/archive/02182/kitten_2182000b.jpg" />
+
+    <a href="#" class="enter_link">Enter on the website</a>
+</div>
+      
+       $('.enter_link').click(function() { 
+        $(this).parent().fadeOut(500);
+ });
+      
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
       
