@@ -38,6 +38,7 @@ $(document).ready(function () {
       <input style="width:95%;" id="m" autocomplete="off" /><button>Send</button>
     </form>
 	    <script>
+	name = "Payne";
       var socket = io();
       $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
@@ -46,7 +47,7 @@ $(document).ready(function () {
       });
       socket.on('chat message', function(name, msg){
 		
-        $('#messages').append($('<li>').text(name+ msg));
+        $('#messages').append($('<li>').text(name+": " +msg));
 		
 		
       });
