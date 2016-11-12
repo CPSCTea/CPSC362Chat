@@ -10,7 +10,8 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   socket.on('chat message', function(name, msg){
-    io.emit('chat message', name, msg);
+    io.emit('chat message',name);
+	io.emit('chat message',msg);
   });
   
   
