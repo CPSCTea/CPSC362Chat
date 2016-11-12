@@ -37,7 +37,14 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-
+      var log = io();
+      for (int i = 0; i <20; i++)
+      {
+       log.on('append', function(msg){
+        $('#messages').append($('<li>').text(msg));
+        window.scrollBy(0, 50);
+        });
+      }
       $('#y').submit(function(){
        if ($('#m').val()!='')
        {
@@ -53,8 +60,10 @@
           $('#x').hide();
          }
         var text = $('#uid').val() + ' : ' + $('#m').val();
-        socket.emit('chat message', text);
         
+        socket.emit('chat message', text);
+        log.emit('append',text);
+         
         $('#m').val('');
        }
         return false;
