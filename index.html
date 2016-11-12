@@ -3,6 +3,7 @@
   <head>
     <title>CPSC362 chat</title>
     <style>
+
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; background: #0F3C73; }
       
@@ -11,16 +12,15 @@
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       
-      form2 { background: #000; padding: 2px; position: fixed;opacity: .5; left:25%; bottom: 50%; width: 50%; }
+      form2 { background: #000; padding: 2px; position: fixed;opacity: .5; left:25%; bottom: 50%; width: 50%; min-width 50%; max-width 75% }
       form2 label {background: #eee; opacity: .90; bottom: 50%}
-      form2 input {border: none; left:20%; padding: 0px; margin: 0px; height: 70%; width: 100%; min-width: 500px; max-width:80%; z-index: 6; left: 0px; outline: none; }
+      form2 input {border: none; left 30%; padding: .1%; margin: .1%; height: 80%; width: 78%; min-width: 5%; max-width:80%; position: absolute; z-index: 6; outline: none; }
       
       #messages { list-style-type: none; margin-bottom: 2%; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #0F3C73; opacity: .6; color: #FFFFFF }
       #messages li:nth-child(even) { background: #002B54; opacity: .8; color: #E17000;}
-
-      
+         
     </style>
   </head>
   <body>
