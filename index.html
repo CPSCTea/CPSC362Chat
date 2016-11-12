@@ -24,6 +24,7 @@
 $(document).ready(function () {
 	$('body').layout({ applyDemoStyles: true });
 });
+var name = prompt("Please enter your name", "Payne");
 </script>
 </head>
 <body>
@@ -38,16 +39,23 @@ $(document).ready(function () {
       <input style="width:95%;" id="m" autocomplete="off" /><button>Send</button>
     </form>
 	    <script>
-	name = "Payne";
+	
       var socket = io();
       $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
+        socket.emit('chat message', name, $('#m').val());
         $('#m').val('');
         return false;
       });
-      socket.on('chat message', function(bs){
+		socket.on('user connect',function(){
+			$('#messages').append($('<li>').text("A user connected"));
+			socket.emit('new user',name);
+		});
+		socket.on('user disconnect',function(){
+			$('#messages').append($('<li>').text("A user disconnected"));
+		});
+		socket.on('chat message', function(name, msg){
 		
-        $('#messages').append($('<li>').text(bs));
+        $('#messages').append($('<li>').text(name+": "+msg));
 		
 		
       });
@@ -60,8 +68,10 @@ $(document).ready(function () {
 <ul id="users"></ul>
 
 <script>
-	
-   $('#users').append($('<li>').text(name));
+	socket.on('new user',function(name){
+		$('#users').append($('<li>').text(name));
+	});
+   
 
 </script>
 
