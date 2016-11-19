@@ -78,7 +78,7 @@
 	    
     <script>
     	socket.on('new user',function(name){
-     		$('#users').append($('<li>').text(name));
+     		$('#users').append($('<li>').text($('#uid').val()));
 	    });
       </script> </div>
         
