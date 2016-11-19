@@ -18,8 +18,8 @@ io.on('connection', function(socket){
 		io.emit('new user',name)
 	});
 	
-  socket.on('chat message', function(name,msg){
-    io.emit('chat message', name,msg);
+  socket.on('chat message', function(msg){
+    io.emit('chat message',msg);
   });
 });
 
