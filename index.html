@@ -27,7 +27,9 @@
 $(document).ready(function () {
 	$('body').layout({ applyDemoStyles: true });
 });
-var name = prompt("Please enter your name", "Payne");
+var rngnamer = Math.floor(Math.random() * 10000 +1);
+var stringer = 'RandomUser_' + rngnamer.toString();
+var name = prompt("Please enter your name", stringer);
 </script>
 </head>
 <body>
