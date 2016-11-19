@@ -15,6 +15,7 @@
       form2 { background: #000; padding: 2px; position: fixed;opacity: .5; left:25%; bottom: 50%; width: 50%; min-width 50%; max-width 75% }
       form2 label {bottom:48%;background: #FFFFFF; padding: 1px; width: 100px; left:2px; opacity: .90;border: none;}
       form2 input {border: 0; background:#FFFFFF; opacity:.7; right: 2px; padding: 1px; margin-left: 100px; height: 80%;width: 90%; min-width: 100px; max-width:1080px; position: absolute; z-index: 6; outline: none; }
+      form2 button { width: 9%; background: #0F3C73; border: none; padding: 10px; color: #E17000; }
       
       #messages { list-style-type: none; margin-bottom: 2.2%; padding: 0; }
       #messages li { padding: 5px 10px; }
@@ -31,7 +32,7 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     <form2 id="x" action="">
-      <label> Username </label><div style = "float:right;"><input id="uid" autocomplete="off" /></div>
+      <label> Username </label><div style = "float:right;"><input id="uid" autocomplete="off" /></div><button>Submit</button>
     </form2>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
