@@ -30,6 +30,7 @@ $(document).ready(function () {
 var rngnamer = Math.floor(Math.random() * 10000 +1);
 var stringer = 'RandomUser_' + rngnamer.toString();
 var name = prompt("Please enter your name", stringer);
+socket.emit('new user', name);
 </script>
 </head>
 <body>
@@ -54,12 +55,13 @@ var name = prompt("Please enter your name", stringer);
        }
         return false;
       });
-		socket.on('user connect',function(){
-			$('#messages').append($('<li>').text( name + " connected"));
+		socket.on('user connect',function(name){
 			socket.emit('new user',name);
+			$('#messages').append($('<li>').text(name + " connected"));
+			
 		});
-		socket.on('user disconnect',function(){
-			$('#messages').append($('<li>').text( name + " disconnected"));
+		socket.on('user disconnect',function(name){
+			$('#messages').append($('<li>').text(name + " disconnected"));
 		});
 		socket.on('chat message', function(name, msg){
 		
