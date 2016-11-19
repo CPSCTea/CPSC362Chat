@@ -11,8 +11,10 @@
       #messages li:nth-child(even) { background: #002B54; opacity: .8; color: #E17000;}
 	  
 	#users { list-style-type: none; margin: 0; padding: 0; }
-      #users li { padding: 5px 10px; }
-
+        #users li { padding: 5px 10px; }
+      #users li:nth-child(even) { background: #0F3C73; opacity: .6; color: #FFFFFF }
+      #users li:nth-child(odd) { background: #002B54; opacity: .8; color: #E17000;}
+	    
     </style>
 
 <script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery-latest.js"></script>
@@ -35,7 +37,7 @@ var name = prompt("Please enter your name", "Payne");
 <script>window.scrollBy(0,50);</script>
 
 </div>
-<div class="ui-layout-south">
+<div class="ui-layout-south" style="height:auto;">
        <form action="">
       <input style="width:95%;" id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -63,7 +65,7 @@ var name = prompt("Please enter your name", "Payne");
     </script>
 </div>
 
-<div class="ui-layout-east">
+<div class="ui-layout-east" style="float:right;">
 
 
 <ul id="users"></ul>
