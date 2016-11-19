@@ -6,11 +6,11 @@
 
     <style>
 	body { font: 13px Helvetica, Arial; background: #0F3C73; }
-      #messages { list-style-type: none; margin: 0; padding: 0; background: #0F3C73; }
+      #messages { list-style-type: none; margin: 0; padding: 0;}
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #0F3C73; opacity: .6; color: #FFFFFF }
       #messages li:nth-child(even) { background: #002B54; opacity: .8; color: #E17000;}
-	#users { list-style-type: none; margin: 0; padding: 0; background: #0F3C73; }
+	#users { list-style-type: none; margin: 0; padding: 0;}
       	#users li { padding: 5px 10px; }
       	#users li:nth-child(even) { background: #0F3C73; opacity: .6; color: #FFFFFF }
      	#users li:nth-child(odd) { background: #002B54; opacity: .8; color: #E17000;}
@@ -32,12 +32,12 @@ var name = prompt("Please enter your name", "Payne");
 </head>
 <body>
 
-<div class="ui-layout-center">
+<div class="ui-layout-center" style="background: #0F3C73;">
 	<ul id="messages"></ul>
 <script>window.scrollBy(0,50);</script>
 
 </div>
-<div class="ui-layout-south" style="height:auto;">
+<div class="ui-layout-south" style="height:auto;background: #0F3C73;">
        <form action="">
       <input style="width:95%;" id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -65,7 +65,7 @@ var name = prompt("Please enter your name", "Payne");
     </script>
 </div>
 
-<div class="ui-layout-east" style="float:right;">
+<div class="ui-layout-east" style="float:right;background: #0F3C73;">
 
 
 <ul id="users"></ul>
