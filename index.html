@@ -53,11 +53,11 @@ var name = prompt("Please enter your name", "Payne");
         return false;
       });
 		socket.on('user connect',function(){
-			$('#messages').append($('<li>').text("A user connected"));
+			$('#messages').append($('<li>').text( name + " connected"));
 			socket.emit('new user',name);
 		});
 		socket.on('user disconnect',function(){
-			$('#messages').append($('<li>').text("A user disconnected"));
+			$('#messages').append($('<li>').text( name + " disconnected"));
 		});
 		socket.on('chat message', function(name, msg){
 		
