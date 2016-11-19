@@ -26,7 +26,12 @@
   </head>
   
   <body>
-    
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery.layout-latest.js"></script>
+	  
+	  
     <div class="ui-layout-center">
     <ul id="messages"></ul>
     </div>
@@ -49,12 +54,7 @@
     <form2 id="x" action="">
       <label> Username </label><div style = "float:right;"><input id="uid" autocomplete="off" /></div>
     </form2>
-    
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery-latest.js"></script>
-    <script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery.layout-latest.js"></script>
-    
+
     <script>
       var socket = io();
       function x()
