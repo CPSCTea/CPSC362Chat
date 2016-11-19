@@ -37,10 +37,8 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-
-      $('#y').submit(function(){
-       if ($('#m').val()!='')
-       {
+      function x()
+      {
         if ($('#uid').val() == '')
           {
           var rngnamer = Math.floor(Math.random() * 10000 +1);
@@ -52,8 +50,13 @@
          {
           $('#x').hide();
          }
-        var text = $('#uid').val() + ' : ' + $('#m').val();
+      }
+      $('#uid').submit(function(){
         
+      $('#y').submit(function(){
+       if ($('#m').val()!='')
+       {
+        var text = $('#uid').val() + ' : ' + $('#m').val();
         socket.emit('chat message', text);
          
         $('#m').val('');
