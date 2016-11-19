@@ -55,12 +55,12 @@ socket.emit('new user', name);
        }
         return false;
       });
-		socket.on('new user',function(name){
-			$('#messages').append($('<li>').text(name + " connected"));
+		socket.on('user connect',function(){
+			$('#messages').append($('<li>').text('new user'));
 			socket.emit('new user',name);
 			
 		});
-		socket.on('user disconnect',function(name){
+		socket.on('user disconnect',function(){
 			$('#messages').append($('<li>').text(name + " disconnected"));
 		});
 		socket.on('chat message', function(name, msg){
