@@ -38,40 +38,11 @@
     
     <div class="ui-layout-south" style="height:auto;">
     <form id="y" action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+	    <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    </div>
-    
-    <div class="ui-layout-east" style="float:right;">
-
-    <ul id="users"></ul>
-    <script>
-    	socket.on('new user',function(name){
-     		$('#users').append($('<li>').text(name));
-	    });
-      </script> </div>
-        
-    <form2 id="x" action="">
-      <label> Username </label><div style = "float:right;"><input id="uid" autocomplete="off" /></div>
-    </form2>
-
-    <script>
-      var socket = io();
-      function x()
-      {
-        if ($('#uid').val() == '')
-          {
-          var rngnamer = Math.floor(Math.random() * 10000 +1);
-          var stringer = 'RandomUser_' + rngnamer.toString();
-          $('#uid').val(stringer);
-          $('#x').hide();
-          }
-        else 
-         {
-          $('#x').hide();
-         }
-      }
-      $('#y').submit(function(){
+	<script>
+	var socket = io();
+	$('#y').submit(function(){
        if ($('#m').val()!='')
        {
         x();
@@ -86,7 +57,38 @@
         $('#messages').append($('<li>').text(msg));
         window.scrollBy(0, 50);
       });
-      
+	</script>
+    </div>
+    
+    <div class="ui-layout-east" style="float:right;">
+
+    <ul id="users"></ul>
+	    
+    <script>
+    	socket.on('new user',function(name){
+     		$('#users').append($('<li>').text(name));
+	    });
+      </script> </div>
+        
+    <form2 id="x" action="">
+      <label> Username </label><div style = "float:right;"><input id="uid" autocomplete="off" /></div>
+    </form2>
+
+    <script>  
+      function x()
+      {
+        if ($('#uid').val() == '')
+          {
+          var rngnamer = Math.floor(Math.random() * 10000 +1);
+          var stringer = 'RandomUser_' + rngnamer.toString();
+          $('#uid').val(stringer);
+          $('#x').hide();
+          }
+        else 
+         {
+          $('#x').hide();
+         }
+      }    
     </script>
   </body>
 </html>
