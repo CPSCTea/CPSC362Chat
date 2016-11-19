@@ -56,12 +56,12 @@ socket.emit('new user', name);
         return false;
       });
 		socket.on('user connect',function(){
-			$('#messages').append($('<li>').text('new user'));
+			$('#messages').append($('<li>').text("A User has Connected."));
 			socket.emit('new user',name);
 			
 		});
 		socket.on('user disconnect',function(){
-			$('#messages').append($('<li>').text(name + " disconnected"));
+			$('#messages').append($('<li>').text("A User has disconnected."));
 		});
 		socket.on('chat message', function(name, msg){
 		
@@ -78,6 +78,7 @@ socket.emit('new user', name);
 <ul id="users"></ul>
 
 <script>
+	$('#users').value('');
 	socket.on('new user',function(name){
 		$('#users').append($('<li>').text(name));
 	});
