@@ -55,9 +55,9 @@ socket.emit('new user', name);
        }
         return false;
       });
-		socket.on('user connect',function(name){
-			socket.emit('new user',name);
+		socket.on('new user',function(name){
 			$('#messages').append($('<li>').text(name + " connected"));
+			socket.emit('new user',name);
 			
 		});
 		socket.on('user disconnect',function(name){
