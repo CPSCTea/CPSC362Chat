@@ -66,7 +66,7 @@ socket.emit('new user', name);
 		socket.on('chat message', function(name, msg){
 		
         $('#messages').append($('<li>').text(name+": "+msg));
-		
+		window.scrollBy(0,50);
 		
       });
     </script>
@@ -78,7 +78,6 @@ socket.emit('new user', name);
 <ul id="users"></ul>
 
 <script>
-	$('#users').value('');
 	socket.on('new user',function(name){
 		$('#users').append($('<li>').text(name));
 	});
