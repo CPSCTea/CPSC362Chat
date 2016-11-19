@@ -45,8 +45,11 @@ var name = prompt("Please enter your name", "Payne");
 	
       var socket = io();
       $('form').submit(function(){
+       if ($('#m').val()!='')
+       {
         socket.emit('chat message', name, $('#m').val());
         $('#m').val('');
+       }
         return false;
       });
 		socket.on('user connect',function(){
