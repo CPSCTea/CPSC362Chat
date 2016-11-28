@@ -42,7 +42,7 @@ socket.emit('new user', name);
 </div>
 <div class="ui-layout-south" style="height:auto;background: #0F3C73;">
        <form action="">
-      <input style="width:95%;" id="m" autocomplete="off" /><button>Send</button>
+      <input style="width:95%;background: #0F3C73;" id="m" autocomplete="off" /><button>Send</button>
     </form>
 	    <script>
 	
@@ -79,7 +79,7 @@ socket.emit('new user', name);
 
 <script>
 	socket.on('new user',function(name){
-		$('#users').value( $('#users').value() + $('<li>').text(name));
+		$('#users').val( $('#users').val() + $('<li>').text(name));
 	});
    
 
