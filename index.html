@@ -80,8 +80,7 @@ socket.emit('new user', name);
 
 <script>
 	socket.on('new user',function(name){
-		var value = $('<li>').text(name);
-		$('#users').prepend(value);	
+		$('#users').prepend($('<li>').text(name));	
 	});
    
 
