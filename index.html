@@ -30,6 +30,7 @@ $(document).ready(function () {
 var rngnamer = Math.floor(Math.random() * 10000 +1);
 var stringer = 'RandomUser_' + rngnamer.toString();
 var name = prompt("Please enter your name", stringer);
+$('#users').empty();
 socket.emit('new user', name);
 </script>
 </head>
@@ -79,7 +80,6 @@ socket.emit('new user', name);
 
 <script>
 	socket.on('new user',function(name){
-		$('#users').empty();
 		var value = $('<li>').text(name);
 		$('#users').prepend(value);	
 	});
