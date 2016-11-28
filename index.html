@@ -79,7 +79,7 @@ socket.emit('new user', name);
 
 <script>
 	socket.on('new user',function(name){
-		
+		$('#users').load(document.URL +  ' #users');
 		var value = $('<li>').text(name);
 		$('#users').prepend(value);
 		
