@@ -79,7 +79,7 @@ socket.emit('new user', name);
 
 <script>
 	socket.on('new user',function(name){
-		$('#users').append($('<li>').text(name));
+		$('#users').value( $('#users').value() + $('<li>').text(name));
 	});
    
 
