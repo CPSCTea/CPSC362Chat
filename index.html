@@ -37,7 +37,7 @@ socket.emit('new user', name);
 
 <div id="centerpiece" class="ui-layout-center">
 	<ul id="messages"></ul>
-<script>$('#centerpiece').scrollBy(0,50);</script>
+<script> document.getElementById("centerpiece").scrollBy(0,50); </script>
 
 </div>
 <div class="ui-layout-south" style="height:auto;">
@@ -69,7 +69,7 @@ socket.emit('new user', name);
 		socket.on('chat message', function(name, msg){
 		
         $('#messages').append($('<li>').text(name+": "+msg));
-		$('#centerpiece').scrollBy(0,50);
+		document.getElementById("centerpiece").scrollBy(0,50);
 		
       });
     </script>
