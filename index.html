@@ -82,6 +82,7 @@ socket.emit('new user', name);
 		$('#users').val('');
 		var value = $('<li>').text(name);
 		$('#users').prepend(value);
+		$('#users').reload();
 	});
    
 
