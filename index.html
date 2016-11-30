@@ -50,7 +50,21 @@ socket.emit('new user', name);
       $('form').submit(function(){
        if ($('#m').val()!='')
        {
+	var tempy = $('#m').val();
+	if (tempy[0] == '#')
+	{
+		var tempy2 = ""
+		for (var i = 1; i<tempy.length; i++)
+		{
+			tempy2+=tempy[i];
+		}
+		tempy = tempy2;
+		$('#messages').append($('<a href="'tempy'"></a>'));
+	}
+	else
+	{
         socket.emit('chat message', name, $('#m').val());
+	}
         $('#m').val('');
        }
         return false;
