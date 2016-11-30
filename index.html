@@ -60,7 +60,7 @@ socket.emit('new user', name);
 			tempy2+=tempy[i];
 		}
 		tempy = tempy2;
-		$('#messages').append($('<a href="'tempy'">Link</a>'));
+		$('#messages').append($('<li>').append($('<a href="'tempy'">Link</a>')));
 	}
 	else
 	{
