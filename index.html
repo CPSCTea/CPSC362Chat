@@ -29,8 +29,14 @@ $(document).ready(function () {
 });
 var rngnamer = Math.floor(Math.random() * 10000 +1);
 var stringer = 'RandomUser_' + rngnamer.toString();
-var name = prompt("Please enter your name", stringer);
+var name;
+
+do{
+	name = prompt("Please enter your name", stringer);
+}while(name == "null" || name == "" || name == null );
+
 socket.emit('new user', name);
+
 
 </script>
 </head>
