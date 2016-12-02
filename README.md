@@ -1,7 +1,7 @@
 "# CPSC362Chat" 
 
-http://cpsc362chat.herokuapp.com
+http://herokuchatcpsc362.herokuapp.com/ Tea Branch
 
-http://davidherokuapp.herokuapp.com/ David Branch
+Has Naming, Name List. No Auto Scroll. 
 
-Currently has Naming, and Auto Scroll
+If someone could get rid of the ugly white border and also fix the auto scroll that would be nice.
