@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>CPSC 362 chat</title>
+
+    <style>
+	body { font: 13px Helvetica, Arial; background: #0F3C73; }
+      #messages { list-style-type: none; margin: 0; padding: 0;}
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #0F3C73; opacity: .6; color: #FFFFFF }
+      #messages li:nth-child(even) { background: #002B54; opacity: .8; color: #E17000;}
+	#users { list-style-type: none; margin: 0; padding: 0;}
+      	#users li { padding: 5px 10px; }
+      	#users li:nth-child(even) { background: #0F3C73; opacity: .6; color: #FFFFFF }
+     	#users li:nth-child(odd) { background: #002B54; opacity: .8; color: #E17000;}
+	    
+    </style>
+
+<script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery-latest.js"></script>
+<script type="text/javascript" src="http://layout.jquery-dev.com/lib/js/jquery.layout-latest.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$('body').layout({ applyDemoStyles: true });
+});
+var rngnamer = Math.floor(Math.random() * 10000 +1);
+var stringer = 'RandomUser_' + rngnamer.toString();
+var name;
+
+do{
+	name = prompt("Please enter your name", stringer);
+}while(name == "null" || name == "" || name == null );
+
+socket.emit('new user', name);
+
+
+</script>
+</head>
+<body>
+
+<div id="centerpiece" class="ui-layout-center">
+	<ul id="messages"></ul>
+<script> window.scrollBy(0,50); </script>
+
+</div>
+<div class="ui-layout-south" style="height:auto;">
+       <form action="">
+      <input style="width:95%; background: #002B54; opacity: .8; color: #FFFFFF;" id="m" autocomplete="off" /><button style = "background: #0F3C73; border: none; color: #E17000;" >Send</button>
+    </form>
+	    <script>
+	
+      var socket = io();
+      $('form').submit(function(){
+       if ($('#m').val()!='')
+       {
+        socket.emit('chat message', name, $('#m').val());
+        $('#m').val('');
+       }
+        return false;
+      });
+		socket.on('user connect',function(){
+			$('#users').empty();
+			$('#messages').append($('<li>').text("A User has Connected."));
+			socket.emit('new user',name);
+			
+		});
+		socket.on('user disconnect',function(){
+			$('#users').empty();
+			$('#messages').append($('<li>').text("A User has disconnected."));
+			socket.emit('new user',name);
+		});
+		socket.on('chat message', function(name, msg){
+		
+        $('#messages').append($('<li>').text(name+": "+msg));
+		window.scrollBy(0,50);
+		
+      });
+    </script>
+</div>
+
+<div class="ui-layout-east" style=" float:right;">
+
+
+<ul id="users"></ul>
+
+<script>
+	socket.on('new user',function(name){
+		$('#users').prepend($('<li>').text(name));	
+	});
+
+</script>
+
+</div>
+</body>
+</html>
