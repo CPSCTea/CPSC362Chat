@@ -1,7 +1,6 @@
 "# CPSC362Chat" 
 
-http://herokuchatcpsc362.herokuapp.com/ Tea Branch
+https://csuf362chat.herokuapp.com/ 
 
-Has Naming, Name List. No Auto Scroll. 
+No Auto Scroll. 
 
-If someone could get rid of the ugly white border and also fix the auto scroll that would be nice.
