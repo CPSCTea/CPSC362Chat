@@ -29,27 +29,25 @@ $(document).ready(function () {
 });
 var rngnamer = Math.floor(Math.random() * 10000 +1);
 var stringer = 'RandomUser_' + rngnamer.toString();
-var name;
-
+var name 
 do{
 	name = prompt("Please enter your name", stringer);
+	
 }while(name == "null" || name == "" || name == null );
-
 socket.emit('new user', name);
-
 
 </script>
 </head>
 <body>
 
-<div id="centerpiece" class="ui-layout-center">
+<div id="centerpiece" class="ui-layout-center" style=" float:right; background: #002B54; background-color: rgb(20, 25, 43); opacity: .8; color: #FFFFFF;">
 	<ul id="messages"></ul>
-<script> window.scrollBy(0,50); </script>
-
+	<script> window.scrollBy(0,50); </script>
+	
 </div>
-<div class="ui-layout-south" style="height:auto;">
+<div class="ui-layout-south" style="height:auto; background: #6f8aab; background-color: rgb(20, 25, 43); opacity: .8;">
        <form action="">
-      <input style="width:95%; background: #002B54; opacity: .8; color: #FFFFFF;" id="m" autocomplete="off" /><button style = "background: #0F3C73; border: none; color: #E17000;" >Send</button>
+      <input style="width:95%; background: #6f8aab; background-color: rgb(20, 25, 43); opacity: .8; color: #FFFFFF;" id="m" autocomplete="off" /><button style = "background: #0F3C73; border: none; color: #E17000;" >Send</button>
     </form>
 	    <script>
 	
@@ -82,7 +80,7 @@ socket.emit('new user', name);
     </script>
 </div>
 
-<div class="ui-layout-east" style=" float:right;">
+<div class="ui-layout-east" style=" float:right; background: #002B54; background-color: rgb(20, 25, 43); opacity: .8; color: #FFFFFF;">
 
 
 <ul id="users"></ul>
