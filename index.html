@@ -74,7 +74,7 @@ socket.emit('new user', name);
 		socket.on('chat message', function(name, msg){
 			
 		var time = new Date();
-		var time2 = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+		var time2 = time.toTimeString().split(' ')[0]
         	$('#messages').append($('<li>').text(name+" (" +time2+") "+": "+msg));
 			
 		$('#centerpiece').scrollBy(0,50);
