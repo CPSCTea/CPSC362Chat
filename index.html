@@ -76,7 +76,9 @@ socket.emit('new user', name);
 		var time2 = time.toTimeString().split(' ')[0]
         	$('#messages').append($('<li>').text(name+" (" +time2+") "+": "+msg));
 			
-		window.scrollBy(0,50);
+		var xy = document.getElementById("centerpiece");
+		xy.scrollTop = xy.scrollHeight - xy.scrollTop;	
+		xy.scrollBy(0,50);
 		
       });
     </script>
