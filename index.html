@@ -72,8 +72,8 @@ socket.emit('new user', name);
 			socket.emit('new user',name);
 		});
 		socket.on('chat message', function(name, msg){
-		
-        $('#messages').append($('<li>').text(name+": "+msg));
+		var time = $.now()
+        $('#messages').append($('<li>').text(name+" (" +time+") "+": "+msg));
 		window.scrollBy(0,50);
 		
       });
