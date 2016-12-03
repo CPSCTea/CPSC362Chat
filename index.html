@@ -42,10 +42,9 @@ socket.emit('new user', name);
 
 <div id="centerpiece" class="ui-layout-center">
 	<ul id="messages" class = "messages-layout" ></ul>
-<script> window.scrollBy(0,50); </script>
-
 </div>
-<div class="ui-layout-south" style="height:auto;">
+	
+<div class="ui-layout-south" style="height:auto;position:fixed;">
        <form action="">
       <input style="width:95%; background: #002B54; opacity: .8; color: #FFFFFF;" id="m" autocomplete="off" /><button style = "background: #0F3C73; border: none; color: #E17000;" >Send</button>
     </form>
@@ -77,13 +76,13 @@ socket.emit('new user', name);
 		var time2 = time.toTimeString().split(' ')[0]
         	$('#messages').append($('<li>').text(name+" (" +time2+") "+": "+msg));
 			
-		$('#centerpiece').scrollBy(0,50);
+		window.scrollBy(0,50);
 		
       });
     </script>
 </div>
 
-<div class="ui-layout-east" style=" float:right;">
+<div class="ui-layout-east" style=" float:right;position:fixed;">
 
 
 <ul id="users"></ul>
