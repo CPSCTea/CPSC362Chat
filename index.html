@@ -77,8 +77,7 @@ socket.emit('new user', name);
         	$('#messages').append($('<li>').text(name+" (" +time2+") "+": "+msg));
 			
 		var xy = document.getElementById("centerpiece");
-		xy.scrollBy(0,50);
-		//xy.scrollTop = xy.scrollHeight - xy.scrollTop;	
+		xy.scrollTop = xy.scrollHeight - xy.scrollTop;
 		
       });
     </script>
